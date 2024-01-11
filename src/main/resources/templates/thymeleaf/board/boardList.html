@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시판 목록</title>
+</head>
+<body>
+  <div class="board-list">
+    <h2>게시판 목록</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>제목</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="board: ${boards}">
+          <th th:text="${board.num}"></th>
+          <th>
+            <a href="#" th:href="@{article/{num}(num=${board.num})}" th:text="${board.title}"></a>
+
+          </th>
+        </tr>
+      </tbody>
+    </table>
+    <button  onclick="location.href='/boards/article';">글쓰기</button>
+
+
+
+
+  </div>
+</body>
+</html>

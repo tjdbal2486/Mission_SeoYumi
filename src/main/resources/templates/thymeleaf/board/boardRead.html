@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시글 조회</title>
+</head>
+<body>
+
+  <h2 th:text="${board.title}"></h2>
+  <div th:text="${board.content}"></div>
+
+  <a href="/boards">이전</a>
+  <a th:href="@{{num}/update(num=${board.num})}">수정</a>
+  <form th:action="@{{num}/delete(num=${board.num})}" method="POST">
+    <input type="submit" value="삭제">
+  </form>
+
+</body>
+</html>
